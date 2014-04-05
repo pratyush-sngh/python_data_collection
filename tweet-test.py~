@@ -1,0 +1,28 @@
+from slistener import SListener
+import time, tweepy, sys
+from pymongo import MongoClient
+client =MongoClient('localhost',27017)
+db=client.bitphi
+## authentication
+auth = tweepy.OAuthHandler('CsNuh7w8sEvTw1ht2Ng0fw', 'qcvZUuiJAh3cMMIum9hlvTSXgrC9EoaXZWEChZW4')
+auth.set_access_token('1513225166-AdJ1zVtLfhLrScJF3Hrjm3rvVOTcQLkfR96Pf38', 'tZoZ7R6sJcW7mrzTCOoRUR3hxn6I09DqdLDyV1W8')
+api = tweepy.API(auth)
+
+def main():
+    #   words.extend(db.words)
+    track = ['CLO', 'CDO', 'RMBS', 'regulatory capital', 'regcap', 'reg cap', 'mortgage credit', 'structured credit', 'securitized credit', 'hedge fund', 'asset manager', 'CDS', 'CDX', 'ABX', 'credit derivatives', 'REIT']
+ 
+    listen = SListener(api, 'myprefix')
+    stream = tweepy.Stream(auth, listen)
+
+    print "Streaming started..."
+
+    try: 
+        print "yoyoyoyyoyoyo"
+        stream.filter(track = track)
+    except:
+        print "error!"
+        stream.disconnect()
+
+if __name__ == '__main__':
+    main()

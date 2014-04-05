@@ -1,0 +1,7 @@
+this repository contain code to:
+1 have active tweet collector using tweepy library and storing part of the needed data in mongodb
+2 download dom from any site using pattern
+3 collecting rrs feeds using pattern
+
+pattern is a very useful library. with lot of integration to social networking sites and searching engine etc.
+first tried doing tweet collection also with it. Tweepy being streaming api library was much easier to use
